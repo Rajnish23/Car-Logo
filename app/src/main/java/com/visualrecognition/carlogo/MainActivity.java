@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private CameraView mCamera;
-    private boolean isFlash = false;
-    private AppCompatButton mFlashOnOffBtn;
-    private JpegImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mCamera = findViewById(R.id.camera);
-        mFlashOnOffBtn = findViewById(R.id.flashOnOffButton);
 
-
-        mFlashOnOffBtn.setOnClickListener(mFlashClickListener);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -59,22 +53,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private View.OnClickListener mFlashClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-            if (mCamera.getFlash() != CameraKit.Constants.FLASH_ON) {
-                mCamera.setFlash(CameraKit.Constants.FLASH_ON);
-                mFlashOnOffBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_flash_on, 0, 0, 0);
-                mFlashOnOffBtn.setText("Flash On");
-            } else {
-                mCamera.setFlash(CameraKit.Constants.FLASH_OFF);
-                mFlashOnOffBtn.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_flash_off, 0, 0, 0);
-                mFlashOnOffBtn.setText("Flash Off");
-            }
-
-        }
-    };
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
