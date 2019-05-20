@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.wonderkiln.camerakit.CameraView
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:ckJpegQuality="100"
+        app:ckFocus="continuous"
+        app:ckPermissions="picture"/>
+
+
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btn_circle_background"
+        android:onClick="takePicture"
+        android:padding="7dp"
+        android:src="@drawable/ic_photo" />
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/flashOnOffButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="8dp"
+        android:padding="14dp"
+        android:text="Flash Off"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_flash_off"
+        app:backgroundTint="@color/colorPrimary" />
+
+
+</FrameLayout>
